@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importer un fichier CSV</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-200 flex flex-col justify-center items-center h-screen">
+
+    <h1 class="text-4xl font-bold mb-8">Importer un fichier CSV</h1>
+
+    <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg mb-8">
+        <form action="{% url 'import_passwords_csv' %}" method="post" enctype="multipart/form-data" class="mb-4">
+            {% csrf_token %}
+            <input type="file" name="csv_file" id="fileInput" accept=".csv" class="hidden" onchange="updateFileName(this)">
+            <label for="fileInput" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">Sélectionner un fichier CSV</label>
+            <span id="fileName" class="ml-2"></span>
+            <br> 
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Importer</button> <!-- Déplacé sous le champ de sélection -->
+        </form>
+        <div class="flex">
+            <a href="{% url 'index' %}" class="text-blue-500 hover:text-blue-700 mr-4">Retour à la liste</a>
+        </div>
+    </div>
+
+    <script>
+        function updateFileName(input) {
+            document.getElementById('fileName').textContent = input.files[0].name;
+        }
+    </script>
+
+</body>
+</html>
