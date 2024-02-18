@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestionnaire des mots de passes</title>
+    <title>Gestionnaire des mots de passe</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Liste des Sites</h1>
-    <ul>
-        {% for password in passwords %}
-            <li>{{ password.name }}</li>
-            <li><a href="{{ password.url }}">{{ password.url }}</a></li>
-            <li>{{ password.pseudonym }}</li>
-            <li>{{ password.password }}</li>
-        {% endfor %}
-    </ul>
+<body class="bg-blue-200 flex flex-col justify-center items-center h-screen">
+
+    <h1 class="text-4xl font-bold mb-8">Liste des Sites</h1>
+
+    <a href="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Créer une nouvelle entrée</a>
+
+    <br>
+    
+    <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg mb-8">
+        <ul>
+            {% for password in passwords %}
+                <li class="mb-4 p-4 bg-blue-100 rounded-lg">
+                    <p class="font-bold">{{ password.name }}</p>
+                    <p><a href="{{ password.url }}" class="text-blue-500">{{ password.url }}</a></p>
+                    <p class="text-sm">Pseudonyme : {{ password.pseudonym }}</p>
+                    <p class="text-sm">Mot de passe : {{ password.password }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
 </body>
 </html>
