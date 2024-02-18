@@ -11,7 +11,7 @@
 - [ ] Suppression de site : Permettez aux utilisateurs de modifier et de supprimer leurs propres sites.
 - [x] Interface utilisateur conviviale : Créez une interface utilisateur simple et intuitive à l'aide de templates Django.
 - [ ] Exporter ses mots de passe au format csv
-- [ ]Importer des mots de passe au format csv
+- [ ] Importer des mots de passe au format csv
 
 
 ## Fonctionnalités bonus
