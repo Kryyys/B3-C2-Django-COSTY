@@ -25,6 +25,11 @@ def edit(request, password_id):
             form.save()
             return redirect('index')
     else:
-        form = PasswordForm(instance=password)  # Passez l'instance à votre formulaire ici
+        form = PasswordForm(instance=password) 
 
     return render(request, 'passwordApp/edit.html', {'form': form})
+
+def delete(request, password_id):
+    password = Password.objects.get(pk=password_id)
+    password.delete()
+    return redirect('index')
