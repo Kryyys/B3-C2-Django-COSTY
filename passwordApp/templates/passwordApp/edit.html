@@ -32,8 +32,12 @@
             </div>
             <div class="mb-4">
                 <label for="password" class="block text-sm font-bold mb-2">Mot de passe :</label>
-                <input type="text" name="password" id="password" value="{{ form.password.value }}" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <div class="flex">
+                    <input type="text" name="password" id="password" value="{{ form.password.value }}" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <button type="button" id="generatePassword" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-2">Générer</button>
+                </div>
             </div>
+            
             
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enregistrer</button>
             <a href="{% url 'index' %}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Retour à la liste des sites</a>
@@ -42,3 +46,19 @@
 
 </body>
 </html>
+
+<script>
+    document.getElementById("generatePassword").addEventListener("click", function() {
+        // Générer un mot de passe aléatoire
+        var passwordLength = 15; // Longueur du mot de passe
+        var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // Caractères utilisés pour générer le mot de passe
+        var password = "";
+        for (var i = 0; i < passwordLength; i++) {
+            var randomIndex = Math.floor(Math.random() * charset.length);
+            password += charset[randomIndex];
+        }
+        
+        // Remplir le champ "Mot de passe" avec le mot de passe généré
+        document.getElementById("password").value = password;
+    });
+    </script>
