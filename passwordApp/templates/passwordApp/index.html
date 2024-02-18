@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionnaire des mots de passe</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Ajouter la bibliothèque Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-blue-200 flex flex-col justify-center items-center h-screen">
 
@@ -17,11 +19,18 @@
     <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg mb-8">
         <ul>
             {% for password in passwords %}
-                <li class="mb-4 p-4 bg-blue-100 rounded-lg">
-                    <p class="font-bold">{{ password.name }}</p>
-                    <p><a href="{{ password.url }}" class="text-blue-500">{{ password.url }}</a></p>
-                    <p class="text-sm">Pseudonyme : {{ password.pseudonym }}</p>
-                    <p class="text-sm">Mot de passe : {{ password.password }}</p>
+                <li class="mb-4 p-4 bg-blue-100 rounded-lg flex justify-between items-center">
+                    <div>
+                        <p class="font-bold">{{ password.name }}</p>
+                        <p><a href="{{ password.url }}" class="text-blue-500">{{ password.url }}</a></p>
+                        <p class="text-sm">Pseudonyme : {{ password.pseudonym }}</p>
+                        <p class="text-sm">Mot de passe : {{ password.password }}</p>
+                    </div>
+                
+                    <div>
+                        <a href="{% url 'edit' password.id %}" class="text-blue-500 hover:text-blue-700 mr-2"><i class="fas fa-edit"></i></a>
+                        <a href="" class="text-red-500 hover:text-red-700"><i class="fas fa-trash-alt"></i></a>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
