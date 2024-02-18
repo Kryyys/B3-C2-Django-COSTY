@@ -1,8 +1,45 @@
-{% block content %}
-    <h2>Créer un nouveau site</h2>
-    <form method="post" action="{% url 'create' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Créer</button>
-    </form>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire des mots de passe</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .input-shadow {
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-blue-200 flex flex-col justify-center items-center h-screen">
+
+    <h2 class="text-2xl font-bold mb-4">Créer un nouveau site</h2>
+    
+    <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg mb-8">
+        <form method="post" action="{% url 'create' %}" class="mb-4">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-bold mb-2">Nom :</label>
+                <input type="text" name="name" id="name" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="url" class="block text-sm font-bold mb-2">URL :</label>
+                <input type="text" name="url" id="url" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="pseudonym" class="block text-sm font-bold mb-2">Pseudonyme :</label>
+                <input type="text" name="pseudonym" id="pseudonym" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-bold mb-2">Mot de passe :</label>
+                <input type="password" name="password" id="password" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Créer</button>
+            <a href="{% url 'index' %}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Retour à la liste des sites</a>
+
+        </form>
+    </div>
+
+</body>
+</html>
