@@ -2,11 +2,7 @@
 
 > Créez une application web de gestion de mots de passe. Les utilisateurs pourront s'inscrire, se connecter, et ajouter, éditer et supprimer des contacts.
 
-GITFLOW : 
-    - main
-       - version_1.0
-         - home_page
-
+> GITFLOW : main > version_1.0 > home_page, create, modify, delete, csv
 
 L'import du csv m'a donné un peu de mal. Dû au MSPR, j'ai un peu oublié le projet et je ne me suis pas trop penchée sur l'authentification.
 
