@@ -25,6 +25,6 @@ def edit(request, password_id):
             form.save()
             return redirect('index')
     else:
-        form = PasswordForm(instance=password)
+        form = PasswordForm(instance=password)  # Passez l'instance à votre formulaire ici
 
     return render(request, 'passwordApp/edit.html', {'form': form})
