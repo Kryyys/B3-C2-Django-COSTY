@@ -12,9 +12,17 @@
 
     <h1 class="text-4xl font-bold mb-8">Gestionnaire de mots de passe</h1>
 
-    <a href="create.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Créer une nouvelle entrée</a>
+    <a href="create.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">Créer une nouvelle entrée</a>
 
-    <br>
+    <div class="flex mb-4">
+        <a href="{% url 'export_passwords_csv' %}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2">Exporter au format CSV</a>
+    
+        <form action="{% url 'import_passwords_csv' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="csv_file" id="fileInput" accept=".csv" class="hidden">
+            <button type="submit" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Importer depuis un fichier CSV</button>
+        </form>
+    </div>
     
     <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg mb-8">
         <ul>
