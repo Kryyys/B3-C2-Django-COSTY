@@ -16,29 +16,42 @@
     <h2 class="text-2xl font-bold mb-4">Modifier l'entrée</h2>
 
     <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg mb-8">
+       
+       <!-- FORMULAIRE -->
         <form method="post" class="mb-4">
             {% csrf_token %}
+
+            <!-- NOM -->
             <div class="mb-4">
                 <label for="name" class="block text-sm font-bold mb-2">Nom :</label>
                 <input type="text" name="name" id="name" value="{{ form.name.value }}" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
+
+            <!-- URL -->
             <div class="mb-4">
                 <label for="url" class="block text-sm font-bold mb-2">URL :</label>
                 <input type="text" name="url" id="url" value="{{ form.url.value }}" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
+
+            <!-- PSEUDO -->
             <div class="mb-4">
                 <label for="pseudonym" class="block text-sm font-bold mb-2">Pseudonyme :</label>
                 <input type="text" name="pseudonym" id="pseudonym" value="{{ form.pseudonym.value }}" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
+
+            <!-- MDP -->
             <div class="mb-4">
                 <label for="password" class="block text-sm font-bold mb-2">Mot de passe :</label>
                 <div class="flex">
                     <input type="text" name="password" id="password" value="{{ form.password.value }}" class="input-shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+
+                    <!-- GENERATION ALEATOIRE MDP -->
                     <button type="button" id="generatePassword" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-2">Générer</button>
                 </div>
             </div>
             
             
+            <!-- BOUTONS ACTIONS -->
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enregistrer</button>
             <a href="{% url 'index' %}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Retour à la liste des sites</a>
         </form>
@@ -48,17 +61,18 @@
 </html>
 
 <script>
+
+    // SCRIPT POUR GENERER UN MDP ALEATOIRE
     document.getElementById("generatePassword").addEventListener("click", function() {
-        // Générer un mot de passe aléatoire
-        var passwordLength = 15; // Longueur du mot de passe
-        var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // Caractères utilisés pour générer le mot de passe
+        var passwordLength = 15; 
+        var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.'/*-+=_#%$"; 
         var password = "";
         for (var i = 0; i < passwordLength; i++) {
             var randomIndex = Math.floor(Math.random() * charset.length);
             password += charset[randomIndex];
         }
         
-        // Remplir le champ "Mot de passe" avec le mot de passe généré
+        // Rempli le champ avec le mdp généré
         document.getElementById("password").value = password;
     });
     </script>

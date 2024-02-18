@@ -18,5 +18,5 @@
 
 - [ ] Authentification des utilisateurs : Permettez aux utilisateurs de s'inscrire, de se connecter et de se déconnecter.
 - [ ] Chiffrement du mot de passe
-- [ ] Génération de mots de passe aléatoires
+- [x] Génération de mots de passe aléatoires
 - [ ] Dark mode

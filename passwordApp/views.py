@@ -4,10 +4,12 @@ from .models import Password
 from .forms import PasswordForm
 import csv
 
+# INDEX
 def index(request):
     passwords = Password.objects.order_by('-name')
     return render(request, "passwordApp/index.html", {'passwords': passwords})
 
+# CREATION
 def create(request):
     if request.method == 'POST':
         form = PasswordForm(request.POST)
@@ -19,6 +21,7 @@ def create(request):
 
     return render(request, 'passwordApp/create.html', {'form': form})
 
+# EDITION
 def edit(request, password_id):
     password = Password.objects.get(pk=password_id)
     if request.method == 'POST':
@@ -31,11 +34,13 @@ def edit(request, password_id):
 
     return render(request, 'passwordApp/edit.html', {'form': form})
 
+# SUPPRESSION
 def delete(request, password_id):
     password = Password.objects.get(pk=password_id)
     password.delete()
     return redirect('index')
 
+# EXPORT CSV
 def export_passwords_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="passwords.csv"'
@@ -49,6 +54,7 @@ def export_passwords_csv(request):
 
     return response
 
+# IMPORT CSV
 def import_passwords_csv(request):
     if request.method == 'POST' and 'csv_file' in request.FILES:
         csv_file = request.FILES['csv_file']

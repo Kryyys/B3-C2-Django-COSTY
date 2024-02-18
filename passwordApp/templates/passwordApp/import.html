@@ -11,12 +11,18 @@
     <h1 class="text-4xl font-bold mb-8">Importer un fichier CSV</h1>
 
     <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg mb-8">
+
+        <!-- FORMULAIRE IMPORT -->
         <form action="{% url 'import_passwords_csv' %}" method="post" enctype="multipart/form-data" class="mb-4">
             {% csrf_token %}
+
+            <!-- BOUTON SELECTION -->
             <input type="file" name="csv_file" id="fileInput" accept=".csv" class="hidden" onchange="updateFileName(this)">
             <label for="fileInput" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">Sélectionner un fichier CSV</label>
             <span id="fileName" class="ml-2"></span>
             <br> 
+
+            <!-- BOUTON DE SOUMISSION -->
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Importer</button> <!-- Déplacé sous le champ de sélection -->
         </form>
         <div class="flex">
@@ -24,11 +30,13 @@
         </div>
     </div>
 
-    <script>
-        function updateFileName(input) {
-            document.getElementById('fileName').textContent = input.files[0].name;
-        }
-    </script>
-
 </body>
 </html>
+
+<script>
+
+    // AFFICHAGE DU NOM DU FICHIER APRES SELECTION
+    function updateFileName(input) {
+        document.getElementById('fileName').textContent = input.files[0].name;
+    }
+</script>
