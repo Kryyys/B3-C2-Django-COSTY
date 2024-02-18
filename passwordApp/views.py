@@ -16,3 +16,15 @@ def create(request):
         form = PasswordForm()
 
     return render(request, 'passwordApp/create.html', {'form': form})
+
+def edit(request, password_id):
+    password = Password.objects.get(pk=password_id)
+    if request.method == 'POST':
+        form = PasswordForm(request.POST, instance=password)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = PasswordForm(instance=password)
+
+    return render(request, 'passwordApp/edit.html', {'form': form})
