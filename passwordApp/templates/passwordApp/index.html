@@ -6,6 +6,14 @@
     <title>Gestionnaire des mots de passes</title>
 </head>
 <body>
-    <h1>COUCOU</h1>
+    <h1>Liste des Sites</h1>
+    <ul>
+        {% for password in passwords %}
+            <li>{{ password.name }}</li>
+            <li><a href="{{ password.url }}">{{ password.url }}</a></li>
+            <li>{{ password.pseudonym }}</li>
+            <li>{{ password.password }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
