@@ -5,18 +5,13 @@
 > GITFLOW : 
 
 Main
-
 └── versions_1.0
-
     ├── home_page
-
     ├── create
-
     ├── modify
-
     ├── delete
-    
     └── csv
+
 
 L'import du csv m'a donné un peu de mal. Dû au MSPR, j'ai un peu oublié le projet et je ne me suis pas trop penchée sur l'authentification.
 
