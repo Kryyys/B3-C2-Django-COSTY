@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Import Passwords</title>
+</head>
+<body>
+    <h1>Import Passwords</h1>
+    <form action="{% url 'import_passwords_csv' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="csv_file" id="fileInput" accept=".csv" class="hidden">
+        <button type="submit">Import CSV</button>
+    </form>
+</body>
+</html>

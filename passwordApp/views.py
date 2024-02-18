@@ -50,7 +50,7 @@ def export_passwords_csv(request):
     return response
 
 def import_passwords_csv(request):
-    if request.method == 'POST' and request.FILES['csv_file']:
+    if request.method == 'POST' and 'csv_file' in request.FILES:
         csv_file = request.FILES['csv_file']
         decoded_file = csv_file.read().decode('utf-8').splitlines()
         reader = csv.DictReader(decoded_file)
