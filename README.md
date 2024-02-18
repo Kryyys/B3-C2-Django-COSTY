@@ -6,12 +6,12 @@
 ## Fonctionnalités attendues
 
 - [x] Liste des sites : Affichez tous les sites. Chaque site doit avoir un nom, une URL, un identifiant et un mot de passe
-- [x]Ajout de sites : Permettez aux utilisateurs d'ajouter de nouveau site avec un formulaire.
-- [] Modification de site
-- [] Suppression de site : Permettez aux utilisateurs de modifier et de supprimer leurs propres sites.
+- [x] Ajout de sites : Permettez aux utilisateurs d'ajouter de nouveau site avec un formulaire.
+- [ ] Modification de site
+- [ ] Suppression de site : Permettez aux utilisateurs de modifier et de supprimer leurs propres sites.
 - [x] Interface utilisateur conviviale : Créez une interface utilisateur simple et intuitive à l'aide de templates Django.
-- [] Exporter ses mots de passe au format csv
-- []Importer des mots de passe au format csv
+- [ ] Exporter ses mots de passe au format csv
+- [ ]Importer des mots de passe au format csv
 
 
 ## Fonctionnalités bonus
