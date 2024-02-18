@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import Password
 
-# Create your views here.
+def index(request):
+    passwords = Password.objects.order_by('-name')
+    return render(request, "passwordApp/index.html", {'passwords': passwords})
